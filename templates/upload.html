@@ -1,0 +1,88 @@
+<html>
+<head><link rel="stylesheet" href="/static/css/style.css" type="text/css">
+<style>
+.button {
+    background-color: #FFFFFF;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style
+ </head>
+   <body>
+      <script>
+    function validate() {
+      var x = document.forms["upload"]["file"].value;
+      if (x == "") {
+        alert("No File provided");
+        return false;
+      }
+    }
+
+      </script>
+	
+      <div class="login-form">
+      <div class="login">
+          <div class="login-screen">
+              <div class="app-title">
+                    <h2>Upload Test Data File To Predict</h2>                                  
+              </div>
+               <div class="login-form">
+                <form name="upload" action="/uploader" method="POST" onsubmit="return validate()" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <pre> <input type = "file" name = "file" />                                    
+                    </div>
+		
+                    <input type = "submit" value="Predict" class="btn btn-primary btn-large btn-block">
+                </form>
+              </div>
+          </div>
+      </div>
+       
+    
+    <div class = "login-screen">
+          <div class="app-title">
+              <h2>Enter the details of individual</h2>
+          </div>
+          <form name="individual" action="/uploader/individual" method="POST"  >
+          <div class="login-form">
+              <div class="control-group">
+                Name:<input type="text" name="name" placeholder="Name">
+                Age:<input type="number" name="age" placeholder="Age">
+                <input type="radio" name="gender" value="Male" checked>M
+                <input type="radio" name="gender" value="Female">F<br><br><br>
+                City:<input type="text" name="city" placeholder="City">
+                Dependent Family Members:<input type="number" name="fam" placeholder="Family">
+                Profession:<select name="prof">
+                  <option value="Job">Job</option>
+                  <option value="Business">Business</option>
+                </select><br><br><br>
+                Number of vehicles:<input type= "number" name="vehicles" placeholder="Vehicle Count">
+                Number of houses:<input type="number" name="houses" placeholder="Property Count">
+                Type of car:<select name="car">
+                  <option value="Sedan">Sedan</option>
+                  <option value="Hatchback">Hatchback</option>
+                  <option value="SUV">SUV</option>
+                </select><br><br><br>
+                Area of Res.:<input type="number" name="area" placeholder="in sqFt">
+                Mutual Fund Investments:<input type="number" name="mtf" placeholder="in Rs">
+                Gold Investments:<input type="number" name="gold" placeholder="in Rs"><br><br><br>
+                Bank Deposits/FD:<input type="number" name="bdfd" placeholder="in Rs">
+                Income PA:<input type="number" name="income" placeholder="in Rs">
+                CIBIL Score:<input type="number" name="cibil" placeholder="in Rs"><br><br><br>        
+              </div>
+          </div>
+          <input type="submit" value="Predict" class="btn btn-primary btn-large btn-block">
+          </form>
+    </div>
+  
+    <center><a href="/logout" class="button">Logout</a><center>
+   </body>
+</html>

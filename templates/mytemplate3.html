@@ -1,0 +1,48 @@
+<html >
+    <script>
+        function myFunction() {
+            // Declare variables 
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("mytable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+<body>
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+<div class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <div class="login-form">
+                <div class="control-group">
+                    <h2>Income Tax fraud possibility</h2>
+                </div> 
+            </div>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+        </div>
+    </div>
+</div>
+<div style="overflow-x:auto;">
+{% block content %}
+{{data | safe}}
+{% endblock %}
+</div>
+
+</body>
+
+</html>
+      
